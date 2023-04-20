@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script>
+      function increment() {
+        var x = parseInt(document.getElementById("x").innerHTML);
+        document.getElementById("x").innerHTML = x + 1;
+        updateVideo();
+      }
+      function decrement() {
+        var x = parseInt(document.getElementById("x").innerHTML);
+        document.getElementById("x").innerHTML = x - 1;
+        updateVideo();
+      }
+      function updateVideo() {
+        var x = document.getElementById("x").innerHTML;
+        var link = "https://sportskart.click/embed/stream-" + x + ".php";
+        document.getElementById("video").src = link;
+      }
+      document.addEventListener("keydown", function(event) {
+        if (event.code === "KeyF") {
+          document.getElementById("video").webkitRequestFullscreen();
+        } else if (event.code === "ArrowUp") {
+          increment();
+        } else if (event.code === "ArrowDown") {
+          decrement();
+        } else if (event.code === "KeyU") {
+          document.getElementById("video").muted = false;
+        }
+      });
+    </script>
+  </head>
+  <body onload="updateVideo()">
+    <button onclick="decrement()">-</button>
+    <span id="x">116</span>
+    <button onclick="increment()">+</button>
+    <br>
+    <iframe id="video" width="460" height="285" frameborder="0" muted></iframe>
+
+    
+
+
+  </body>
+</html>

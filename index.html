@@ -1,5 +1,124 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <title>myTV Sport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        color: #454545;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      #video {
+        width: 100%;
+        height: 100vh;
+        display: block;
+        margin: 0 auto;
+      }
+      .btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #b0afaf;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 5px 10px;
+        vertical-align: middle;
+      }
+      .btn:hover {
+        background-color: #939393;
+      }
+      #x {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 7px;
+      }
+      .btn-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .btn-bein {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #582C8C;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin: 0 3px;
+      }
+      .btn-bein:hover {
+        background-color: #461f72;
+      }
+      .btn-rmc {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin: 0 3px;
+      }
+      .btn-rmc:hover {
+        background-color: #c82333;
+      }
+      .btn-canal {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #1f1f1f;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin: 0 3px;
+      }
+      .btn-canal:hover {
+        background-color: #242424;
+      }
+      .logo {
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        margin-right: 10px;
+        vertical-align: middle;
+        opacity: 0;
+        animation: fade-in 1s ease-in-out forwards;
+      }
+      /* Animation pour faire apparaître le logo */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @media (max-width: 768px) {
+        .btn-container {
+          flex-direction: column;
+        }
+      }
+    </style>
     <script>
       function increment() {
         var x = parseInt(document.getElementById("x").innerHTML);
@@ -16,6 +135,59 @@
         var link = "https://sportskart.click/embed/stream-" + x + ".php";
         document.getElementById("video").src = link;
       }
+      function beinSport1() {
+        var link = "https://sportskart.click/embed/stream-116.php";
+        document.getElementById("x").innerHTML = "116";
+        document.getElementById("video").src = link;
+      }
+      function beinSport2() {
+        var link = "https://sportskart.click/embed/stream-117.php";
+        document.getElementById("x").innerHTML = "117";
+        document.getElementById("video").src = link;
+        showLogo();
+      }
+
+      function beinSport3() {
+        var link = "https://sportskart.click/embed/stream-118.php";
+        document.getElementById("x").innerHTML = "118";
+        document.getElementById("video").src = link;
+        showLogo();
+      }
+
+      function rmcSport1() {
+        var link = "https://sportskart.click/embed/stream-119.php";
+        document.getElementById("x").innerHTML = "119";
+        document.getElementById("video").src = link;
+        showLogo();
+      }
+
+      function rmcSport2() {
+        var link = "https://sportskart.click/embed/stream-120.php";
+        document.getElementById("x").innerHTML = "120";
+        document.getElementById("video").src = link;
+        showLogo();
+      }
+
+      function canalPlus() {
+        var link = "https://sportskart.click/embed/stream-121.php";
+        document.getElementById("x").innerHTML = "121";
+        document.getElementById("video").src = link;
+        showLogo();
+      }
+
+      function canalPlusFoot() {
+        var link = "https://sportskart.click/embed/stream-122.php";
+        document.getElementById("x").innerHTML = "122";
+        document.getElementById("video").src = link;
+        showLogo();
+      }
+
+      function showLogo() {
+        var logo = document.querySelector(".logo");
+        logo.style.opacity = "1";
+        logo.style.animation = "none";
+      }
+
       document.addEventListener("keydown", function(event) {
         if (event.code === "KeyF") {
           document.getElementById("video").webkitRequestFullscreen();
@@ -25,19 +197,47 @@
           decrement();
         } else if (event.code === "KeyU") {
           document.getElementById("video").muted = false;
+        } else if (event.code === "Digit1") {
+          beinSport1();
+        } else if (event.code === "Digit2") {
+          beinSport2();
+        } else if (event.code === "Digit3") {
+          beinSport3();
+        } else if (event.code === "Digit4") {
+          rmcSport1();
+        } else if (event.code === "Digit5") {
+          rmcSport2();
+        } else if (event.code === "Digit6") {
+          canalPlus();
+        } else if (event.code === "Digit7") {
+          canalPlusFoot();
         }
       });
-    </script>
+  </script>
+
+
+
   </head>
   <body onload="updateVideo()">
-    <button onclick="decrement()">-</button>
-    <span id="x">116</span>
-    <button onclick="increment()">+</button>
+    <!-- <img src="logo.png" alt="Logo" class="logo"> -->
+    <div class="btn-container">
+
+      
+      
+      <button class="btn" onclick="decrement()">-</button>
+      <span style="position: relative; top: 3px;" id="x">116</span>
+      <button class="btn" onclick="increment()">+</button>
+
+      <button class="btn-bein" onclick="beinSport1()">Bein Sport 1</button>
+      <button class="btn-bein" onclick="beinSport2()">Bein Sport 2</button>
+      <button class="btn-bein" onclick="beinSport3()">Bein Sport 3</button>
+      <button class="btn-rmc" onclick="rmcSport1()">RMC Sport 1</button>
+      <button class="btn-rmc" onclick="rmcSport2()">RMC Sport 2</button>
+      <button class="btn-canal" onclick="canalPlus()">Canal+</button>
+      <button class="btn-canal" onclick="canalPlusFoot()">Canal+ Sport</button>
+
+    </div>
     <br>
-    <iframe id="video" width="460" height="285" frameborder="0" muted></iframe>
-
-    
-
-
+    <iframe id="video" frameborder="0" muted></iframe>
   </body>
 </html>
